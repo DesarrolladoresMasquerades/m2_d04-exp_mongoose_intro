@@ -19,3 +19,10 @@ Cat.find({ age: { $gt: 10 } })
 Cat.findById('5d48d51c036739dace0141c8')
   .then(foundCat => console.log('Found this cat by their ID: ', foundCat))
   .catch(err => console.log('Error while getting the cats: ', err));
+
+// Bonus: Count documents
+Cat.countDocuments({ name: 'Garfield' })
+  .then(total =>
+    console.log('Total number of cats with name Garfield: ', total)
+  )
+  .catch(err => console.log('Error while counting the cats: ', err));

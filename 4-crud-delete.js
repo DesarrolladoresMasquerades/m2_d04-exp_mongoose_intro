@@ -16,9 +16,18 @@ Cat
   .then(deletedCat => console.log(`Deleted cat with id: ${deletedCat._id}`))
   .catch(err => console.log('Error while deleting one cat: ', err));
 
+// Remove all cats named Garfield
 Cat.deleteMany({ name: 'Garfield' })
   .then(deletedCats => {
     console.log('deleted: ', deletedCats);
+    // deletedCats.forEach(oneCat =>  console.log(`Deleted cat with id: ${oneCat._id}`));
+  })
+  .catch(err => console.log('Error while deleting one cat: ', err));
+
+// Remove one cat named Garfield
+Cat.deleteOne({ name: 'Garfield' })
+  .then(deletedCat => {
+    console.log('deleted: ', deletedCat);
     // deletedCats.forEach(oneCat =>  console.log(`Deleted cat with id: ${oneCat._id}`));
   })
   .catch(err => console.log('Error while deleting one cat: ', err));

@@ -11,6 +11,8 @@ require('./configs/database.config');
 // ----------------------------------------------------------------------------
 
 // .create() is a mongoose method and under the hood uses insertOne and insertMany
+
+// create one document in the cats collection
 Cat.create({ name: 'Garfield', age: 13, color: 'orange' })
   .then(catDoc => console.log(`Cat create worked well: ${catDoc}`))
   .catch(error =>
@@ -24,3 +26,14 @@ Cat.create({ name: 'Garfield', age: 13, color: 'orange' })
 //         .save()
 //         .then(newCat => console.log(`A created cat is: ${newCat}`))
 //         .catch(err => console.log(`Error while creating a cat! ${err}`));
+
+// create multiple documents in the cats collection
+Cat.create([
+  { name: 'Garfield', age: 13, color: 'orange' },
+  { name: 'Milo', age: 4, color: 'white' },
+  { name: 'Whiskey', age: 8, color: 'grey' }
+])
+  .then(catDocs => console.log(`Multiple cats created: `, catDocs))
+  .catch(error =>
+    console.log(`Creating a new cat went wrong! Try again 😞 ${err}`)
+  );
