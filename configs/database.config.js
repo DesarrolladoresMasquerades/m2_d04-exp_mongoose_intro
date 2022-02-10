@@ -4,7 +4,7 @@ mongoose
   //       Atlas link   cats-app-dev is the name of our database
   //            |            |
   .connect(
-    "mongodb+srv://marco-ih-bcn:aUcsxinSarvT7d6J@cluster0.ckp2v.mongodb.net/cats-app-dev?retryWrites=true&w=majority"
+    `mongodb+srv://${process.env.MG_USERNAME}:${process.env.MG_PWD}@cluster0.ckp2v.mongodb.net/cats-app-dev?retryWrites=true&w=majority`
   )
   .then((x) =>
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)

@@ -1,7 +1,7 @@
 /**
  * Liveshare hack
  */
-
+require("dotenv/config")
 require("./configs/database.config");
 
 const Cat = require("./models/Cat.model");
@@ -11,7 +11,7 @@ const Cat = require("./models/Cat.model");
 
 Cat.findByIdAndUpdate(
   "6204fef1607d31c0dd9503b2",
-  { $set: { name: "Sandra" } },
+  { name: "Ciccio" },
   { new: true }
 ).then((cat) => console.log(cat));
 //
